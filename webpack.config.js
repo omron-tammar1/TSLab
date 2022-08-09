@@ -1,0 +1,49 @@
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+module.exports = {
+  mode: 'development', //production
+  entry: {
+    main: path.resolve(__dirname, 'src/app.ts'),
+  },
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    filename: '[name].js',
+    assetModuleFilename: '[name][ext]',
+    clean: true,
+  },
+  devtool: 'inline-source-map',
+  devServer: {
+    static: path.resolve(__dirname, 'dist'),
+    port: 5001, //default 8080
+    open: true,
+    hot: true,
+  },
+	resolve: {
+		extensions: ['.tsx', '.ts', '.js'],
+	},
+  //loaders
+  module: {
+    rules: [
+      //css
+      { test: /\.css$/, use: ['style-loader', 'css-loader'] },
+      //images
+      { test: /\.(svg|ico|png|webp|jpg|gif|jpeg)$/, type: 'asset/resource' },
+      //js for babel
+			{
+				test: /\.ts?$/,
+				use: 'ts-loader',
+				exclude: /node_modules/,
+			},
+    ],
+  },
+  //plugins
+  plugins: [
+    new HtmlWebpackPlugin({
+      title: 'Just a Demo',
+      filename: 'index.html',
+      template: path.resolve(__dirname, 'src/temp.html'),
+      favicon: path.resolve(__dirname, 'src/logo.svg'),
+    }),
+  ],
+};
