@@ -7,14 +7,14 @@ module.exports = {
     main: path.resolve(__dirname, 'src/app.ts'),
   },
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'docs'),
     filename: '[name].js',
     assetModuleFilename: '[name][ext]',
     clean: true,
   },
   devtool: 'inline-source-map',
   devServer: {
-    static: path.resolve(__dirname, 'dist'),
+    static: path.resolve(__dirname, 'docs'),
     port: 5001, //default 8080
     open: true,
     hot: true,
@@ -40,7 +40,7 @@ module.exports = {
   //plugins
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'Just a Demo',
+      title: 'TSLab',
       filename: 'index.html',
       template: path.resolve(__dirname, 'src/temp.html'),
       favicon: path.resolve(__dirname, 'src/logo.svg'),
