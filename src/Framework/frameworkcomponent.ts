@@ -1,11 +1,14 @@
 class frameworkcomponent {
 
-    constructor(public name: string){
+    public view: HTMLElement
 
+    constructor(public name: string){
+        this.view = document.createElement('div')
+        this.view.innerText = 'hello  ' + this.name
     }
 
     render() {
-        return 'hello  ' + this.name
+        return this.view
     }
 }
 

@@ -21,10 +21,21 @@ class framework {
             button.classList.add('toolbarbutton')
             button.innerText = c.name
             header.append(button)
-            button.addEventListener('click', () => main.innerHTML = c.render())
+            button.addEventListener('click', () => {
+                removeChildren(main)
+                main.appendChild(c.render())
+            })
         })
 
     }
+
+
 }
+
+    const removeChildren = (parent: Element) => {
+        while (parent.lastChild) {
+            parent.removeChild(parent.lastChild)
+        }
+    };
 
 export {framework}
