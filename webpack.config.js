@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   mode: 'development', //production
@@ -26,7 +27,7 @@ module.exports = {
   module: {
     rules: [
       //css
-      { test: /\.css$/, use: ['style-loader', 'css-loader'] },
+      { test: /\.css$/i, use: [MiniCssExtractPlugin.loader, 'css-loader'] },
       //images
       { test: /\.(svg|ico|png|webp|jpg|gif|jpeg)$/, type: 'asset/resource' },
       //js for babel
@@ -39,11 +40,12 @@ module.exports = {
   },
   //plugins
   plugins: [
+    new MiniCssExtractPlugin({filename: "styles.css"}),
     new HtmlWebpackPlugin({
       title: 'TSLab',
       filename: 'index.html',
       template: path.resolve(__dirname, 'src/temp.html'),
       favicon: path.resolve(__dirname, 'src/logo.svg'),
-    }),
+    })
   ],
 };
