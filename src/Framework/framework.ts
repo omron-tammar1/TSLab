@@ -27,9 +27,9 @@ class framework {
             })
         })
 
+        removeChildren(main)
+        main.appendChild(this.components[0].render())
     }
-
-
 }
 
     const removeChildren = (parent: Element) => {

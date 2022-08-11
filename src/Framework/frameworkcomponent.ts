@@ -4,7 +4,7 @@ class frameworkcomponent {
 
     constructor(public name: string){
         this.view = document.createElement('div')
-        this.view.innerText = 'hello  ' + this.name
+        this.view.innerText = `${this.name} Content`
     }
 
     render() {
