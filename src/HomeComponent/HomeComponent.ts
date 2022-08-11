@@ -1,4 +1,5 @@
-import { frameworkcomponent } from './Framework/frameworkcomponent';
+import { frameworkcomponent } from '../Framework/frameworkcomponent';
+import "./HomeComponent.css";
 
 export class HomeComponent extends frameworkcomponent {
 
@@ -13,7 +14,7 @@ export class HomeComponent extends frameworkcomponent {
         div.appendChild(textdiv)
 
         let button = document.createElement('button')
-        button.classList.add('toolbarbutton')
+        button.classList.add('homebutton')
         button.innerText = 'ClickMe'
         div.append(button)
         button.addEventListener('click', () => {

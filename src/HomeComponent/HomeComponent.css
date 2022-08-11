@@ -1,0 +1,11 @@
+.homebutton {
+    background-color: goldenrod;
+    color: black;
+    border-width: 0px;
+    margin: 10px;
+    padding: 12px;
+  }
+
+  .homebutton:hover{
+    background-color: gold;
+  }

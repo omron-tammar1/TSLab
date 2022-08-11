@@ -1,4 +1,5 @@
 import { frameworkcomponent } from "./frameworkcomponent";
+import "./framework.css";
 
 class framework {
 

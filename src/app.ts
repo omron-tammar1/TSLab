@@ -4,7 +4,7 @@ import CreateName from './Libs/name-tag';
 import { frameworkcomponent } from './Framework/frameworkcomponent';
 import { framework } from './Framework/framework';
 import "./main.css";
-import { HomeComponent } from './HomeComponent';
+import { HomeComponent } from './HomeComponent/HomeComponent';
 import { KinematicComponent } from './KinematicComponent';
 
 let frame = new framework()
