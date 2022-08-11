@@ -13,7 +13,7 @@
 
 .header {
   grid-area: header;
-  background-color: rgb(125, 12, 131);
+  background-color: steelblue;
   height: 60px;
 }
 
@@ -29,11 +29,16 @@
 }
 
 .toolbarbutton {
-  background-color: rgb(53, 53, 53);
+  background-color: rgb(104, 104, 104);
   color: white;
   border-width: 0px;
   margin: 10px;
   padding: 12px;
+}
+
+
+.toolbarbuttonselected {
+  background-color: rgb(128, 128, 128);
 }
 
 .toolbarbutton:hover{
