@@ -21,6 +21,12 @@ export class HomeComponent extends frameworkcomponent {
            alert("Hello World!")
         })
 
+        for (let index = 0; index < 100; index++) {
+            let textdiv2 = document.createElement('div');
+            textdiv2.innerText = `${index} Hi`;
+            div.appendChild(textdiv2)          
+        }
+
         this.view = div;
     }
 }

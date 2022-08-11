@@ -19,6 +19,7 @@
 
 .main {
   grid-area: main;
+  overflow: scroll;
   background-color: rgb(104, 102, 102);
 }
 
@@ -38,7 +39,8 @@
 
 
 .toolbarbuttonselected {
-  background-color: rgb(128, 128, 128);
+  background-color: rgb(0, 71, 71);
+  border-bottom: 6px solid red;
 }
 
 .toolbarbutton:hover{
