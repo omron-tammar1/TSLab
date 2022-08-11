@@ -19,7 +19,9 @@
 
 .main {
   grid-area: main;
-  overflow: scroll;
+  overflow-x: auto;
+  overflow-y: auto;
+  white-space: nowrap;
   background-color: rgb(104, 102, 102);
 }
 
