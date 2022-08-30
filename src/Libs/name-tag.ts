@@ -3,7 +3,7 @@ template.innerHTML = `
   <style>
     h3 {
       color: darkolivegreen;
-      margin: 10px;
+      margin: 1px;
     }
   </style>
 
@@ -27,10 +27,21 @@ class UserCard extends HTMLElement {
     }
   }
 
- 
+ document.addEventListener('DOMContentLoaded', () => {
+  console.log('registered component')
+   //customElements.define('name-tag', UserCard)
+  console.log('registered component')
+ })
   
-  customElements.define('name-tag', UserCard);
+ function init(){
+ }
 
+ 
+
+//  (() => {
+  customElements.define('name-tag', UserCard)
+  
+// })();
 
   function CreateName(name: string) {
     console.log('Create name-tag!!!!');
@@ -41,4 +52,4 @@ class UserCard extends HTMLElement {
     return m;
   }
   
-  export default CreateName;
+  export {init};
