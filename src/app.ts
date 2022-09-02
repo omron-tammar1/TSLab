@@ -6,6 +6,7 @@ import { framework } from './Framework/framework';
 import "./main.css";
 import { HomeComponent } from './HomeComponent/HomeComponent';
 import { KinematicComponent } from './KinematicComponent';
+import { init2 } from './Libs/omron-tag';
 
 let frame = new framework()
 frame.addComponent(new HomeComponent())
@@ -14,6 +15,7 @@ frame.render()
 
 
 init()
+init2()
 
 
 // console.log('¡Hola!');
