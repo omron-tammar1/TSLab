@@ -31,6 +31,14 @@ class UserCard extends HTMLElement {
   console.log('registered component')
    //customElements.define('name-tag', UserCard)
   console.log('registered component')
+
+
+  let footer = document.querySelector('[data-test]') as HTMLElement
+  console.log(footer)
+  console.log(footer?.dataset?.test)
+  footer.dataset.test = "456"
+  console.log(footer?.dataset?.test)
+
  })
   
  function init(){
