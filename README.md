@@ -12,3 +12,5 @@ npm install
 All the other files in this Gist go inside the `src` folder.
 
 The `dist` folder remains empty. Its files will be generated when you run the build command.
+
+Added from GitHub
