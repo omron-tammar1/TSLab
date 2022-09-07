@@ -46,3 +46,8 @@ img {
   border: 2px solid #300; */
   /* background-color: blue; */
 }
+
+#app{
+  width: 300px;
+  height: 300px;
+}
