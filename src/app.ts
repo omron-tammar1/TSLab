@@ -66,11 +66,13 @@ function Create3DView(domElementQuery: HTMLCanvasElement) {
     // Create Directional Light
     CreateDirectionalLight(scene);
 
+    CreateRobot(scene)
+
     const geometry = new THREE.BoxGeometry()
     const material = new THREE.MeshPhongMaterial({color: 0xFFAD00})
     const cube = new THREE.Mesh(geometry, material)
-    cube.position.z = 5
-    cube.position.y = -1
+    cube.position.z = 0.5
+    cube.position.y = -3
     scene.add(cube)
 
     // Animate the scene
@@ -140,8 +142,22 @@ function CreateDirectionalLight(scene: THREE.Scene) {
     // scene.add(dLightShadowHelper);
 }
 
+let step = 0;
+let speed = 0.01;
+
 function Animate(scene: THREE.Scene, camera: THREE.PerspectiveCamera, renderer: THREE.WebGLRenderer) {
+
     function animate(time:any) {
+
+        if (robotParts.length > 1){
+
+            //robotParts[0].rotation.z += 0.01;
+            robotParts[1].rotation.z = Math.PI / 4 * Math.sin(step)
+            robotParts[2].rotation.z = Math.PI / 4 * Math.sin(step);
+            robotParts[3].rotation.z = -Math.PI / 3 - Math.PI / 4 * Math.sin(step);
+            robotParts[4].rotation.z += 0.01;
+        }
+        step += speed
         renderer.render(scene, camera);
     }
 
@@ -167,13 +183,102 @@ function get3DHeight() {
 
 
 
+let robotParts: THREE.Group[] = [];
+
+function CreateRobot(scene: THREE.Scene){
 
 
+Promise.all([
+    loadWavefront('./models/Viper 650 base.obj', "./models/Viper 650 base.mtl"),
+    loadWavefront('models/Viper 650 joint 1.obj', "models/Viper 650 joint 1.mtl"),
+    loadWavefront('models/Viper 650 joint 2.obj', "models/Viper 650 joint 2.mtl"),
+    loadWavefront('models/Viper 650 joint 3.obj', "models/Viper 650 joint 3.mtl"),
+    loadWavefront('models/Viper 650 joint 4.obj', "models/Viper 650 joint 4.mtl"),
+    loadWavefront('models/Viper 650 joint 5.obj', "models/Viper 650 joint 5.mtl"),
+    loadWavefront('models/Viper 650 joint 6.obj', "models/Viper 650 joint 6.mtl"),
+]).then((result) => {
+        console.log("Updating robot parts");
+
+        robotParts = [...result];
+
+        console.log(robotParts);
+
+        robotParts[0].scale.x = 0.01;
+        robotParts[0].scale.y = 0.01;
+        robotParts[0].scale.z = 0.01;
+
+        //robotParts[0].rotation.x = -Math.PI / 2;
+
+        robotParts[1].position.z = 200;
+
+        robotParts[2].rotation.x = -Math.PI / 2;
+        robotParts[2].position.x = 75;
+        robotParts[2].position.y = 75;
+        robotParts[2].position.z = 130;
+
+        robotParts[3].rotation.z = -Math.PI / 2;
+        robotParts[3].position.x = 270;
+
+        robotParts[4].rotation.x = -Math.PI / 2;
+        robotParts[4].position.x = 90;
+        robotParts[4].position.y = 105;
+        robotParts[4].position.z = -70;
+
+        robotParts[5].rotation.x = -Math.PI / 2;
+        robotParts[5].position.z = 200;
+
+        robotParts[6].rotation.x = Math.PI / 2;
+        robotParts[6].position.y = -55;
+
+        scene.add(robotParts[0])
+        robotParts[0].add(robotParts[1]);
+        robotParts[1].add(robotParts[2]);
+        robotParts[2].add(robotParts[3]);
+        robotParts[3].add(robotParts[4]);
+        robotParts[4].add(robotParts[5]);
+        robotParts[5].add(robotParts[6]);
+});
+}
 
 
+function loadWavefront(objUrl: string, matUrl: string): Promise<THREE.Group> {
+
+    return new Promise((res, rej) => {
+
+        console.log("1");
+        var mtlLoader2 = new MTLLoader();
+        //mtlLoader.setBaseUrl( 'models/' );
+        //mtlLoader.setPath( 'models/' );
+        //var url2 = "models/Viper 650 joint 1.mtl";
+        mtlLoader2.load( matUrl, function( materials ) {
+
+            console.log("2");
+            materials.preload();
+
+            var objLoader = new OBJLoader();
+            objLoader.setMaterials( materials );
+            //objLoader.setPath( 'obj/male02/' );
+            objLoader.load( objUrl, function ( object2 ) {
+
+                // object2.scale.x = 0.01;
+                // object2.scale.y = 0.01;
+                // object2.scale.z = 0.01;
+
+                //object2.rotation.x = -Math.PI / 2;
+                //object2.position.z = 200;
+                //object.add( object2 );
+                console.log("Added second object");
+                //robot = object2;
+                res(object2);
+
+            }, function(p){}, function(e){} );
+
+        });
 
 
+    })
 
+}
 
 
 

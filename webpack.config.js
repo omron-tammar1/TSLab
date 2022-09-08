@@ -29,7 +29,7 @@ module.exports = {
       //css
       { test: /\.css$/i, use: [MiniCssExtractPlugin.loader, 'css-loader'] },
       //images
-      { test: /\.(svg|ico|png|webp|jpg|gif|jpeg)$/, type: 'asset/resource' },
+      { test: /\.(svg|ico|png|webp|jpg|gif|jpeg|obj|mtl)$/, type: 'asset/resource' },
       //js for babel
 			{
 				test: /\.ts?$/,
