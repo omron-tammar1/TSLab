@@ -13,6 +13,7 @@ export class HomeComponent extends frameworkcomponent {
         super('MyHome')
 
         let div = document.createElement('div')
+        div.setAttribute('id', 'robotdiv')
 
         let canvas = document.createElement('canvas')
         canvas.setAttribute('id', 'app')
@@ -161,11 +162,15 @@ function Animate(scene: THREE.Scene, camera: THREE.PerspectiveCamera, renderer: 
 }
 
 function get3DWidth() {
-    return 400; //window.innerWidth;
+    let width = (document.querySelector('.main') as HTMLDivElement).clientWidth
+    console.log('width' + width)
+    return  width //window.innerWidth;
 }
 
 function get3DHeight() {
-    return 400; //window.innerHeight;
+    let height = (document.querySelector('.main') as HTMLDivElement).clientHeight
+    console.log('height' + height)
+    return  height //window.innerWidth;
 }
 
 
