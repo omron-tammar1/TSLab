@@ -162,13 +162,13 @@ function Animate(scene: THREE.Scene, camera: THREE.PerspectiveCamera, renderer: 
 }
 
 function get3DWidth() {
-    let width = (document.querySelector('.main') as HTMLDivElement).clientWidth
+    let width = (document.querySelector('.main') as HTMLDivElement).clientWidth - 0
     console.log('width' + width)
     return  width //window.innerWidth;
 }
 
 function get3DHeight() {
-    let height = (document.querySelector('.main') as HTMLDivElement).clientHeight
+    let height = (document.querySelector('.main') as HTMLDivElement).clientHeight - 10
     console.log('height' + height)
     return  height //window.innerWidth;
 }

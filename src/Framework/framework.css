@@ -15,7 +15,22 @@
   grid-area: header;
   background-color: steelblue;
   /* height: 60px; */
+  
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-columns: max-content auto max-content;
+  grid-template-areas:
+  "tabs blank omron";
 }
+
+.tabs {
+  grid-area: tabs;
+}
+
+.omron {
+  grid-area: omron;
+}
+
 
 .main {
   grid-area: main;

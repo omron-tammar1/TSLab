@@ -14,7 +14,7 @@ class framework {
 
     render() {
 
-        let header = document.querySelector('.header')!
+        let header = document.querySelector('.tabs')!
         let main = document.querySelector('.main')!
         let buttons: Array<HTMLButtonElement> = new Array<HTMLButtonElement>()
 
