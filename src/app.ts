@@ -155,7 +155,8 @@ function Animate(scene: THREE.Scene, camera: THREE.PerspectiveCamera, renderer: 
             robotParts[1].rotation.z = Math.PI / 4 * Math.sin(step)
             robotParts[2].rotation.z = Math.PI / 4 * Math.sin(step);
             robotParts[3].rotation.z = -Math.PI / 3 - Math.PI / 4 * Math.sin(step);
-            robotParts[4].rotation.z += 0.01;
+            robotParts[4].rotation.z = Math.PI / 2 * Math.sin(step);
+            robotParts[5].rotation.z = Math.PI / 2 * Math.sin(step);
         }
         step += speed
         renderer.render(scene, camera);
