@@ -6,7 +6,7 @@ import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader'
 import { MTLLoader } from 'three/examples/jsm/loaders/MTLLoader'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 
-export class HomeComponent extends frameworkcomponent {
+class HomeComponent extends frameworkcomponent {
 
     constructor() {
 
@@ -17,7 +17,7 @@ export class HomeComponent extends frameworkcomponent {
 }
 
 
-class HomeWebComponent extends HTMLElement {
+export class HomeWebComponent extends HTMLElement {
     connectedCallback() {
 
         let div = document.createElement('div')
@@ -29,15 +29,17 @@ class HomeWebComponent extends HTMLElement {
         div.appendChild(canvas)
 
       this.appendChild(div);
+
+      Create3DView(document.getElementById('app') as HTMLCanvasElement)
     }
 }
 
 customElements.define('app-home', HomeWebComponent);
 
-document.addEventListener('DOMContentLoaded', () => {
+//document.addEventListener('DOMContentLoaded', () => {
 
-    Create3DView(document.getElementById('app') as HTMLCanvasElement)
-})
+    //Create3DView(document.getElementById('app') as HTMLCanvasElement)
+//})
 
 
 

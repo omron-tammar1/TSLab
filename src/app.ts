@@ -4,20 +4,125 @@ import {init} from './Libs/name-tag';
 import { frameworkcomponent } from './Framework/frameworkcomponent';
 import { framework } from './Framework/framework';
 import "./main.css";
-import { HomeComponent } from './HomeComponent/HomeComponent';
-import { KinematicComponent } from './KinematicComponent/KinematicComponent';
+import { HomeWebComponent } from './HomeComponent/HomeComponent';
+import { KinematicWebComponent } from './KinematicComponent/KinematicComponent';
 import { init2 } from './Libs/omron-tag';
 
 
 
 let frame = new framework()
-frame.addComponent(new HomeComponent())
-frame.addComponent(new KinematicComponent())
-frame.render()
+// frame.addComponent(new HomeComponent())
+// frame.addComponent(new KinematicComponent())
+// frame.render()
 
 
 init()
 init2()
+
+
+
+
+export type Type<T> = new (...args: any[]) => T;
+
+class Page1Component extends HTMLElement {
+  connectedCallback() {
+    this.innerHTML = 'Page One';
+  }
+}
+
+class Page2Component extends HTMLElement {
+  connectedCallback() {
+    this.innerHTML = 'Page Two';
+  }
+}
+
+class Page3Component extends HTMLElement {
+  connectedCallback() {
+    this.innerHTML = 'Page Three';
+  }
+}
+
+class MainComponent extends HTMLElement {
+
+  constructor() {
+    super();
+  }
+
+  render() {
+    this.innerHTML = `
+    <h1>Single Page Demo</h1>
+    <nav>
+      <a href="#page1">Home</a> |
+      <a href="#page2">Kinematic</a> |
+      <a href="#page3">Page 3</a> |
+    </nav>
+    <div class="container">
+      <app-router-outlet></app-router-outlet>
+    </div>
+    `;
+  }
+
+  connectedCallback() {
+    this.render();
+  }
+}
+
+class RouterOutletComponent extends HTMLElement {
+
+  private routes: { [path: string]: Type<HTMLElement> }
+
+  constructor() {
+    super();
+    this.routes = {
+      '': Page1Component,
+      '#page1': HomeWebComponent,
+      '#page2': KinematicWebComponent,
+      '#page3': Page3Component
+    };
+  }
+
+  connectedCallback() {
+    window.addEventListener('hashchange',
+      (e: HashChangeEvent) => this.locationHashChanged(e));
+  }
+
+  disconnectedCallback() {
+    window.removeEventListener('hashchange',
+      (e: HashChangeEvent) => this.locationHashChanged(e));
+  }
+
+  locationHashChanged(e: HashChangeEvent) {
+    const paths = Object.keys(this.routes);
+    if (paths.some(r => r === window.location.hash)) {
+      this.innerHTML = '';
+      const type = this.routes[window.location.hash];
+      const component = new type;
+      this.insertAdjacentElement('afterbegin', component);
+    }
+  }
+
+}
+
+customElements.define('app-main', MainComponent);
+customElements.define('app-router-outlet', RouterOutletComponent);
+customElements.define('app-page1', Page1Component);
+customElements.define('app-page2', Page2Component);
+customElements.define('app-page3', Page3Component);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // console.log('¡Hola!');

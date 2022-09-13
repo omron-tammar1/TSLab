@@ -1,7 +1,7 @@
 import { frameworkcomponent } from '../Framework/frameworkcomponent';
 import "./KinematicComponent.css";
 
-export class KinematicComponent extends frameworkcomponent {
+class KinematicComponent extends frameworkcomponent {
 
     constructor() {
 
@@ -11,7 +11,7 @@ export class KinematicComponent extends frameworkcomponent {
     }
 }
 
-class KinematicWebComponent extends HTMLElement {
+export class KinematicWebComponent extends HTMLElement {
     connectedCallback() {
 
         let div = document.createElement('div');
