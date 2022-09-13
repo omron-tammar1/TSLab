@@ -14,7 +14,7 @@ html {
 }
 body {
   min-height: 100vh;
-  background-color: #333;
+  background-color: #AAAAAA;
   color: #eee;
 }
 header,
@@ -40,7 +40,7 @@ img {
 
 .headerOmron{
   margin: 10px;
-  height: 40px;
+  height: 50px;
   width: 250px;
   /* max-width: 200px;
   border: 2px solid #300; */

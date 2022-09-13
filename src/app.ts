@@ -50,14 +50,9 @@ class MainComponent extends HTMLElement {
 
   render() {
     this.innerHTML = `
-    <h1>Single Page Demo</h1>
-    <nav>
-      <a href="#page1">Home</a> |
-      <a href="#page2">Kinematic</a> |
-      <a href="#page3">Page 3</a> |
-    </nav>
     <div class="container">
-      <app-router-outlet></app-router-outlet>
+      <app-router-outlet>
+      </app-router-outlet>
     </div>
     `;
   }

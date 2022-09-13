@@ -51,6 +51,7 @@ function Create3DView(domElementQuery: HTMLCanvasElement) {
 
     // Create Scene
     const scene = new THREE.Scene();
+    scene.background = new THREE.Color(0x484e51)
 
     // Create Camera
     const camera = CreateCamera(renderer);
