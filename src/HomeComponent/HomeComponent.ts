@@ -11,6 +11,14 @@ export class HomeComponent extends frameworkcomponent {
     constructor() {
 
         super('MyHome')
+        let div = document.createElement('app-home')
+        this.view = div
+    }
+}
+
+
+class HomeWebComponent extends HTMLElement {
+    connectedCallback() {
 
         let div = document.createElement('div')
         div.setAttribute('id', 'robotdiv')
@@ -20,10 +28,11 @@ export class HomeComponent extends frameworkcomponent {
 
         div.appendChild(canvas)
 
-        this.view = div
+      this.appendChild(div);
     }
 }
 
+customElements.define('app-home', HomeWebComponent);
 
 document.addEventListener('DOMContentLoaded', () => {
 

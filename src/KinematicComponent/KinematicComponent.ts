@@ -6,11 +6,18 @@ export class KinematicComponent extends frameworkcomponent {
     constructor() {
 
         super('Kinematic Demo');
+        let div = document.createElement('app-kinematic')
+        this.view = div;
+    }
+}
+
+class KinematicWebComponent extends HTMLElement {
+    connectedCallback() {
 
         let div = document.createElement('div');
 
         let textdiv = document.createElement('div');
-        textdiv.innerText = `${this.name} Override`;
+        textdiv.innerText = `'Kinematic Demo WebComp' Override`;
         div.appendChild(textdiv)
 
         let button = document.createElement('button')
@@ -27,6 +34,8 @@ export class KinematicComponent extends frameworkcomponent {
             }
         })
 
-        this.view = div;
+      this.appendChild(div);
     }
 }
+
+customElements.define('app-kinematic', KinematicWebComponent);
