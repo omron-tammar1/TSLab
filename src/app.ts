@@ -129,8 +129,26 @@ class MenuItemUpdate extends HTMLElement {
   }
 }
 
+class CustomMenuUpdate extends HTMLElement {
+
+  constructor() {
+    super();
+  }
+
+  connectedCallback() {
+    this.attachShadow({ mode: 'open' });
+    if (this.shadowRoot) {
+      this.shadowRoot.innerHTML = `
+              <div>
+                  <slot name="item"></slot>
+              </div>`;
+    }
+  }
+}
+
 
 customElements.define('menu-item', MenuItemUpdate);
+customElements.define('custom-menu', CustomMenuUpdate);
 
 
 
