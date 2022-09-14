@@ -111,10 +111,26 @@ customElements.define('app-page3', Page3Component);
 
 
 
+class MenuItemUpdate extends HTMLElement {
+
+  constructor() {
+    super();
+  }
+
+  connectedCallback() {
+
+    const href = this.getAttribute('href')
+
+    this.innerHTML = `
+    <div>
+      <a href="${href}" class="navtab">${this.textContent}</a>
+    </div>
+    `;
+  }
+}
 
 
-
-
+customElements.define('menu-item', MenuItemUpdate);
 
 
 
