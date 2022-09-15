@@ -142,6 +142,24 @@ class CustomMenuUpdate extends HTMLElement {
               <div>
                   <slot name="item"></slot>
               </div>`;
+
+              const slot = this.shadowRoot.querySelector<HTMLSlotElement>('slot[name="item"]')
+              if (slot) {
+                slot.assignedNodes()
+                  .forEach((e: Node) => {
+                    e.addEventListener('click', (el: Event) => 
+                    {
+                      const tabs2 = this.querySelectorAll('.navselected')
+                      console.log(tabs2)
+                      tabs2.forEach(b => {
+                        (b as MenuItemUpdate).classList.remove('navselected')
+                        console.log('Remove from: ', (b as MenuItemUpdate))
+                      })
+                      let butt = (el.target as MenuItemUpdate)
+                      butt.classList.add('navselected')
+                    })
+                  })
+              }
     }
   }
 }
