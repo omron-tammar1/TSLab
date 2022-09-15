@@ -18,6 +18,14 @@ class HomeComponent extends frameworkcomponent {
 
 
 export class HomeWebComponent extends HTMLElement {
+
+    private renderer: THREE.WebGLRenderer
+
+    constructor(){
+        super();
+        this.renderer = new THREE.WebGLRenderer()
+    }
+
     connectedCallback() {
 
         let div = document.createElement('div')
@@ -30,7 +38,12 @@ export class HomeWebComponent extends HTMLElement {
 
       this.appendChild(div);
 
-      Create3DView(document.getElementById('app') as HTMLCanvasElement)
+      this.renderer.dispose()
+      this.renderer = Create3DView(document.getElementById('app') as HTMLCanvasElement).renderer
+    }
+
+    disconnectedCallback() {
+        this.renderer.dispose()
     }
 }
 
@@ -81,7 +94,7 @@ function Create3DView(domElementQuery: HTMLCanvasElement) {
     Animate(scene, camera, renderer);
 
     //return {joints, scene, link};
-    return { scene };
+    return { renderer, scene };
 
 
 }
