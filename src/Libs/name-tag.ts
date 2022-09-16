@@ -25,6 +25,8 @@ class UserCard extends HTMLElement {
        const name = this.getAttribute('name')!;
       h3.innerText = name;
     }
+
+    static Init(){}
   }
 
  document.addEventListener('DOMContentLoaded', () => {
@@ -41,8 +43,6 @@ class UserCard extends HTMLElement {
 
  })
   
- function init(){
- }
 
  
 
@@ -138,4 +138,4 @@ class UserCard extends HTMLElement {
 
 
   
-  export {init};
+  export {UserCard};

@@ -44,7 +44,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: 'TSLab',
       filename: 'index.html',
-      template: path.resolve(__dirname, 'src/temp.html'),
+      template: path.resolve(__dirname, 'src/template.html'),
       favicon: path.resolve(__dirname, 'src/logo.svg'),
     })
   ],

@@ -29,11 +29,13 @@ class OmronTagComponent extends HTMLElement {
 
     //this.shadowRoot.querySelector('h3').innerText = this.getAttribute('name');
   }
+
+  static Init() {
+
+  }
 }
 
 customElements.define(`omron-tag`, OmronTagComponent);
 
-function init2(){
-}
 
-export {init2};
+export {OmronTagComponent};
