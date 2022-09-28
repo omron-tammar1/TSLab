@@ -17,7 +17,7 @@ export class KinematicWebComponent extends HTMLElement {
         let div = document.createElement('div');
 
         let textdiv = document.createElement('div');
-        textdiv.innerText = `'Kinematic Demo WebComp' Override test3`;
+        textdiv.innerText = `'Kinematic Demo WebComp' Override test4`;
         div.appendChild(textdiv)
 
         let button = document.createElement('button')
