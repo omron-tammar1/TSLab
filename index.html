@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TSLab</title>
+  <link rel="icon" href="logo.svg"><script defer src="main.js"></script><link href="styles.css" rel="stylesheet"></head>
+  <body>
+
+    <div class="wrapper">
+
+      <div class="header">
+        <div class="tabs">
+          <custom-menu>
+            <menu-item href="#page1" slot="item" class="navtab">Home</menu-item>
+            <menu-item href="#page2" slot="item" class="navtab">Kinematic</menu-item>
+            <menu-item href="#page3" slot="item" class="navtab">Page 3</menu-item>
+            <menu-item href="#page4" slot="item" class="navtab">Page 4</menu-item>
+          </custom-menu>
+        </div>
+        <div class="omron"><div class="headerOmron"><omron-tag></omron-tag></div></div>
+          <!-- <h1 class="headerTitle">Kinematics Tool</h1> -->
+      </div>
+  
+      <div class="main">
+        <app-main></app-main>
+      </div>
+
+      <div class="footer" data-test="123">
+        
+        <name-tag name='Viper 650'></name-tag>
+        <!-- <time-format
+        datetime="2020-04-13"
+        year="numeric"
+        month="long"
+        day="numeric"
+        hour="numeric"
+        minute="numeric"
+        second="numeric"
+        time-zone-name="short"
+       ></time-format> -->
+      </div> 
+    </div>
+
+    <!-- <header>
+      <h1>TSLab</h1>
+    </header>
+    <name-tag name='Fred!'></name-tag> -->
+  </body>
+</html>
