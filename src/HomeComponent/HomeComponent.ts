@@ -209,13 +209,13 @@ function CreateRobot(scene: THREE.Scene){
 
 
 Promise.all([
-    loadWavefront('./models/Viper 650 base.obj', "./models/Viper 650 base.mtl"),
-    loadWavefront('models/Viper 650 joint 1.obj', "models/Viper 650 joint 1.mtl"),
-    loadWavefront('models/Viper 650 joint 2.obj', "models/Viper 650 joint 2.mtl"),
-    loadWavefront('models/Viper 650 joint 3.obj', "models/Viper 650 joint 3.mtl"),
-    loadWavefront('models/Viper 650 joint 4.obj', "models/Viper 650 joint 4.mtl"),
-    loadWavefront('models/Viper 650 joint 5.obj', "models/Viper 650 joint 5.mtl"),
-    loadWavefront('models/Viper 650 joint 6.obj', "models/Viper 650 joint 6.mtl"),
+    loadWavefront('./Viper 650 base.obj', "./Viper 650 base.mtl"),
+    loadWavefront('./Viper 650 joint 1.obj', "./Viper 650 joint 1.mtl"),
+    loadWavefront('./Viper 650 joint 2.obj', "./Viper 650 joint 2.mtl"),
+    loadWavefront('./Viper 650 joint 3.obj', "./Viper 650 joint 3.mtl"),
+    loadWavefront('./Viper 650 joint 4.obj', "./Viper 650 joint 4.mtl"),
+    loadWavefront('./Viper 650 joint 5.obj', "./Viper 650 joint 5.mtl"),
+    loadWavefront('./Viper 650 joint 6.obj', "./Viper 650 joint 6.mtl"),
 ]).then((result) => {
         console.log("Updating robot parts");
 
