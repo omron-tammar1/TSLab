@@ -207,7 +207,6 @@ let robotParts: THREE.Group[] = [];
 
 function CreateRobot(scene: THREE.Scene){
 
-
 Promise.all([
     loadWavefront('./models/Viper 650 base.obj', "./models/Viper 650 base.mtl"),
     loadWavefront('models/Viper 650 joint 1.obj', "models/Viper 650 joint 1.mtl"),
