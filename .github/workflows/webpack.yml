@@ -35,4 +35,4 @@ jobs:
         clean: true
         clean-exclude: |
           special-file.txt
-          some/readme.md
+          models/readme.md
