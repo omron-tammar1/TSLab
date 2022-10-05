@@ -1,0 +1,32 @@
+#
+# Wavefront material file: C:\Source\ACE Trunk\Ace.Adept\Support Files\Models\Viper 650\Viper 650 joint 6.mtl
+#
+# Converted by the PolyTrans geometry converter from Okino Computer Graphics, Inc.
+# Date/time of export: 05/07/2016 11:46:09
+#
+# Bounding box of geometry = (-32.5,-32.4523,-10) to (32.3095,32.4523,28).
+
+newmtl default
+	Ns 32
+	d 1
+	illum 2
+	Kd 0.4 0.4 0.4
+	Ks 0.7 0.7 0.7
+	Ka 0.3 0.3 0.3
+
+newmtl AdeptAIB
+	Ns 24
+	d 1
+	illum 2
+	Kd 0.0627451 0.0627451 0.0627451
+	Ks 0.109804 0.109804 0.109804
+	Ka 0.0470588 0.0470588 0.0470588
+
+newmtl Material
+	Ns 100
+	d 1
+	illum 2
+	Kd 0.129412 0.129412 0.156863
+	Ks 0.0647059 0.0647059 0.0784314
+	Ka 0.129412 0.129412 0.156863
+
