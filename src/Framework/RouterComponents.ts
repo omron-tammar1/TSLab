@@ -22,7 +22,7 @@ class Page3Component extends HTMLElement {
 
 class Page4Component extends HTMLElement {
   connectedCallback() {
-    this.innerHTML = 'Page Four';
+    this.innerHTML = 'Page Four!';
   }
 }
 
