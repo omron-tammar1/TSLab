@@ -15,3 +15,8 @@ The `dist` folder remains empty. Its files will be generated when you run the bu
 
 Added from GitHub
 Added from Dev tools 
+
+References for the GitHub deploy action:
+https://github.com/JamesIves/github-pages-deploy-action
+https://www.youtube.com/watch?v=jBZfo2Mj1mY
+https://github.com/marketplace/actions/deploy-to-github-pages
