@@ -87,8 +87,64 @@ class RouterOutletComponent extends HTMLElement {
 
 }
 
+
+
+class MenuComponent extends HTMLElement {
+
+  private routes: [{name: string, link: string}]
+
+  constructor() {
+    super();
+    this.routes = [{name: "link", link: ""}]
+  }
+
+  setRoutes(newroutes: [{name: string, link: string}]) {
+    this.routes = newroutes
+
+    const div = document.querySelector('.menucontainer') as HTMLDivElement
+    div.innerHTML=''
+
+    this.routes.forEach(r => {
+      let d = document.createElement('div')
+      d.innerText = r.name
+      //div.appendChild(d)
+    })
+
+
+  }
+
+  render() {
+    this.innerHTML = `
+    <div class="menucontainer">
+Hello
+    </div>
+    `;
+  }
+
+  connectedCallback() {
+    this.render();
+  }
+
+  // disconnectedCallback() {
+  //   window.removeEventListener('hashchange',
+  //     (e: HashChangeEvent) => this.locationHashChanged(e));
+  // }
+
+  // locationHashChanged(e: HashChangeEvent) {
+  //   const paths = Object.keys(this.routes);
+  //   if (paths.some(r => r === window.location.hash)) {
+  //     this.innerHTML = '';
+  //     const type = this.routes[window.location.hash];
+  //     const component = new type;
+  //     this.insertAdjacentElement('afterbegin', component);
+  //   }
+  // }
+
+}
+
 customElements.define('app-main', MainComponent);
 customElements.define('app-router-outlet', RouterOutletComponent);
+customElements.define('app-menu', MenuComponent);
 customElements.define('app-page1', Page1Component);
 customElements.define('app-page2', Page2Component);
 customElements.define('app-page3', Page3Component);
@@ -133,6 +189,8 @@ class CustomMenuUpdate extends HTMLElement {
                   <slot name="item"></slot>
               </div>`;
 
+              this.classList.add('menugrid')
+
               const slot = this.shadowRoot.querySelector<HTMLSlotElement>('slot[name="item"]')
               if (slot) {
                 slot.assignedNodes()
@@ -158,4 +216,4 @@ class CustomMenuUpdate extends HTMLElement {
 customElements.define('menu-item', MenuItemUpdate);
 customElements.define('custom-menu', CustomMenuUpdate);
 
-export {Page1Component, Page3Component, Page4Component, RouterOutletComponent }
+export {Page1Component, Page3Component, Page4Component, RouterOutletComponent, MenuComponent }

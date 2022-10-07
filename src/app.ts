@@ -7,7 +7,7 @@ import "./main.css";
 import { HomeWebComponent } from './HomeComponent/HomeComponent';
 import { KinematicWebComponent } from './KinematicComponent/KinematicComponent';
 import { OmronTagComponent } from './Libs/omron-tag';
-import {Page1Component, Page3Component, Page4Component, RouterOutletComponent } from './Framework/RouterComponents'
+import {Page1Component, Page3Component, Page4Component, RouterOutletComponent, MenuComponent } from './Framework/RouterComponents'
 
 // let frame = new framework()
 // frame.addComponent(new HomeComponent())
@@ -26,6 +26,15 @@ document.addEventListener('DOMContentLoaded', () => {
     '#page3': Page3Component,
     '#page4': Page4Component
   })
+
+
+  const menuComponent = document.querySelector('app-menu') as MenuComponent
+  let routes: [{name: string, link: string}] = [{name: "Home", link: ""}]
+  routes.push({name: "Kinematics", link: ""})
+  routes.push({name: "Page 3", link: ""})
+  routes.push({name: "Page 4", link: ""})
+  menuComponent.setRoutes(routes)
+
 })
 
 

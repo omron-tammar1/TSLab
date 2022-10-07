@@ -79,3 +79,14 @@
   color: darkblue;
   font-weight: bold;
 }
+
+.menugrid {
+  display: grid;
+  grid-auto-flow: column;
+}
+
+.menucontainer {
+  display: grid;
+  grid-auto-flow: row;
+  background-color: aqua;
+}
