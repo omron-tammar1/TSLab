@@ -10,6 +10,10 @@ npm install
 ```
 ## Folders
 
+- [x] Turn on GitHub Pages
+- [ ] Outline my portfolio
+- [ ] Introduce myself to the world
+
 All the other files in this Gist go inside the `src` folder.
 
 The `dist` folder remains empty. Its files will be generated when you run the build command.
