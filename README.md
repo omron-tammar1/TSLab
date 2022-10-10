@@ -8,6 +8,7 @@ Run this command to install all the dependecies from the package.json file
 ```
 npm install
 ```
+## Folders
 
 All the other files in this Gist go inside the `src` folder.
 
