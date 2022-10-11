@@ -110,9 +110,20 @@ class MenuComponent extends HTMLElement {
       d.setAttribute('href', r.link)
       d.classList.add('navtab')
       div.appendChild(d)
+
+        d.addEventListener('click', (el: Event) => 
+        {
+          const tabs2 = this.querySelectorAll('.navselected')
+          tabs2.forEach(b => {
+            (b as HTMLLinkElement).classList.remove('navselected')
+            console.log('Remove from: ', (b as HTMLLinkElement))
+          })
+          let butt = (el.target as HTMLLinkElement)
+          butt.classList.add('navselected')
+        })
+      
+
     })
-
-
   }
 
   render() {
