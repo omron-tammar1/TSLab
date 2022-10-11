@@ -128,8 +128,10 @@ class MenuComponent extends HTMLElement {
 
   render() {
     this.innerHTML = `
-    <div class="menucontainer">
-Hello
+    <div>
+      <div class='toggle'>Button</div>
+      <div class="menucontainer">
+      </div>
     </div>
     `;
   }
