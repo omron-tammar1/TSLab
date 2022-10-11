@@ -105,9 +105,11 @@ class MenuComponent extends HTMLElement {
     div.innerHTML=''
 
     this.routes.forEach(r => {
-      let d = document.createElement('div')
+      let d = document.createElement('a')
       d.innerText = r.name
-      //div.appendChild(d)
+      d.setAttribute('href', r.link)
+      d.classList.add('navtab')
+      div.appendChild(d)
     })
 
 

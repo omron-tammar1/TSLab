@@ -87,6 +87,14 @@
 
 .menucontainer {
   display: grid;
-  grid-auto-flow: row;
-  background-color: aqua;
+  grid-auto-flow: column;
+  /* background-color: darkslateblue; */
+}
+
+@media screen and (max-width: 600px) {
+  .menucontainer {
+    display: grid;
+    grid-auto-flow: row;
+    /* background-color: darkslateblue; */
+  }
 }
