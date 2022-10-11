@@ -13,6 +13,7 @@ npm install
 - [x] Turn on GitHub Pages
 - [ ] Outline my portfolio
 - [ ] Introduce myself to the world
+- [ ] Another task
 
 All the other files in this Gist go inside the `src` folder.
 
