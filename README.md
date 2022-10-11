@@ -14,7 +14,7 @@ npm install
 - [ ] Outline my portfolio
 - [ ] Introduce myself to the world
 - [ ] Another task
-- [ ] Update ReadMe file
+- [x] Update ReadMe file
 
 All the other files in this Gist go inside the `src` folder.
 
