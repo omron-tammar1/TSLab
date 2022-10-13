@@ -29,10 +29,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   const menuComponent = document.querySelector('app-menu') as MenuComponent
-  let routes: [{name: string, link: string}] = [{name: "Home", link: ""}]
-  routes.push({name: "Kinematics", link: ""})
-  routes.push({name: "Page 3", link: ""})
-  routes.push({name: "Page 4", link: ""})
+  let routes: [{name: string, link: string}] = [{name: "Home", link: "#page1"}]
+  routes.push({name: "Kinematics", link: "#page2"})
+  routes.push({name: "Page 3", link: "#page3"})
+  routes.push({name: "Page 4", link: "#page4"})
   menuComponent.setRoutes(routes)
 
 })
