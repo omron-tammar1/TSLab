@@ -116,21 +116,86 @@ class MenuComponent extends HTMLElement {
           const tabs2 = this.querySelectorAll('.navselected')
           tabs2.forEach(b => {
             (b as HTMLLinkElement).classList.remove('navselected')
-            console.log('Remove from: ', (b as HTMLLinkElement))
+            // console.log('Remove from: ', (b as HTMLLinkElement))
           })
           let butt = (el.target as HTMLLinkElement)
           butt.classList.add('navselected')
-        })
-      
 
+          const menuoutercontainer = document.querySelector('.menuoutercontainer') as HTMLDivElement
+          const toggleButt = document.querySelector('.toggle') as HTMLDivElement
+          const btnStyles = window.getComputedStyle(toggleButt);
+          if (btnStyles.display != 'none') menuoutercontainer.classList.add('hidemenucontainer')
+        })
     })
+
+    const toggle = document.querySelector('.toggle') as HTMLDivElement
+    toggle.addEventListener('click', (el: Event) => 
+    {
+      const div = document.querySelector('.menuoutercontainer') as HTMLDivElement
+      if (div.classList.contains('hidemenucontainer'))
+      {
+        div.classList.remove('hidemenucontainer')
+      }
+      else{
+        div.classList.add('hidemenucontainer')
+      }
+      //console.log('Clicked toggle butt')
+      //toggle.setAttribute('mark', 'fred')
+    })
+
+    // //var targetNode = document.getElementById('elementId');
+    // let observer = new MutationObserver(function(mutations){
+    //     if (toggle.style.display != 'none') {
+    //         // doSomething
+    //       }
+    //       console.log('Clicked toggle butt "' + toggle.style.display + '"')
+    // });
+    // observer.observe(toggle, { attributes: true, childList: true });
+
+
+    function respondToVisibility(element: HTMLElement, callback: (visible: boolean) => void ) {
+      var options = {
+        root: document.documentElement,
+      };
+    
+      var observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          callback(entry.intersectionRatio > 0);
+        });
+      }, options);
+    
+      observer.observe(element);
+    }
+
+    respondToVisibility(toggle, (visible) => 
+    {
+      const div = document.querySelector('.menuoutercontainer') as HTMLDivElement
+      
+      if (visible){
+        div.classList.add('hidemenucontainer')
+      }
+      else {
+        div.classList.remove('hidemenucontainer')
+      }
+      //console.log('Toggle visible: ' + visible)
+    })
+
+    //console.log('Registered mutation observer!', observer)
   }
 
   render() {
     this.innerHTML = `
     <div>
-      <div class='toggle'>Button</div>
-      <div class="menucontainer">
+      <div class='toggle'>  
+      <svg>
+      <line x1="20%" y1="50%" x2="80%" y2="50%"/>
+       <line x1="20%" y1="50%" x2="80%" y2="50%"/>
+       <line x1="20%" y1="50%" x2="80%" y2="50%"/>
+      
+    </svg></div>
+      <div class="menuoutercontainer">
+        <div class="menucontainer">
+        </div>
       </div>
     </div>
     `;

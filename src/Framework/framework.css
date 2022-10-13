@@ -85,10 +85,38 @@
   grid-auto-flow: column;
 }
 
+.toggle {
+  display: none;
+}
+
 .menucontainer {
   display: grid;
   grid-auto-flow: column;
   /* background-color: darkslateblue; */
+}
+
+.hidemenucontainer {
+  display: none;
+}
+
+svg {
+  width: 100px;
+  height: 100px;
+  cursor: pointer;
+}
+line {
+  stroke: #d3531a;
+  stroke-width:8;
+  stroke-linecap: round;
+  transform-origin: center;
+  transition: 0.4s;
+}
+
+line:nth-of-type(1) {
+  transform: translateY(-20px);
+}
+line:nth-of-type(3) {
+  transform: translateY(20px);
 }
 
 @media screen and (max-width: 600px) {
@@ -97,4 +125,9 @@
     grid-auto-flow: row;
     /* background-color: darkslateblue; */
   }
-}
+  .toggle {
+    display: block;
+  }
+
+  
+  }
